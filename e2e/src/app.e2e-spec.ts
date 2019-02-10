@@ -21,4 +21,3 @@ describe('workspace-project App', () => {
     }));
   });
 });
-console.log('hello'); 
