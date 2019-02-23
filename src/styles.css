@@ -2,3 +2,9 @@
 body{
     background-color: azure;
 }
+
+
+span.input-group-text {
+    width: 15%;
+    text-align: center;
+}

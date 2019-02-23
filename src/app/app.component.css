@@ -16,3 +16,15 @@ body{
    .form-control{
        width: 30%;
    }
+
+   .form-group {
+    text-align: -webkit-center;
+}
+
+input.form-control {
+    margin: 18px;
+}
+
+.input-group-prepend {
+    background-color: antiquewhite;
+}
