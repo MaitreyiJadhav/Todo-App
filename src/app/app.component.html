@@ -14,19 +14,10 @@ Todo List  </h1>
       <span class="input-group-text" (click)="addTodo(todo.value)">Add</span>
 
 
-
-
-
-     
-   <!-- <h1 class="text-center text-primary">Todo App</h1> -->
-      
-        
-       
-
     </div>
 
     <p>{{myVariable.value}}</p>
-    <p>{{todo.value}}</p>
+
 
 
 
@@ -34,10 +25,14 @@ Todo List  </h1>
       <div class="input-group-prepend">
           <div class="data">
               <ul class="list-instyled">
-               <li *ngFor="let todo of todoArray">{{todo}}</li>
+
+                <div class="new-item"><li *ngFor="let todo of todoArray">{{todo}}    <a class="btn" ng-click="remove(todo.value)">Delete</a>
+                </li></div>
+               
               </ul>
               </div>
    </div>
   </form>
+
+  
  </div>
- 

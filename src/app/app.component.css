@@ -28,3 +28,11 @@ input.form-control {
 .input-group-prepend {
     background-color: antiquewhite;
 }
+
+a.btn{
+    background-color: #ff000054
+}
+
+li{
+    margin-top: 1rem;
+}
