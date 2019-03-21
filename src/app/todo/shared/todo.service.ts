@@ -19,5 +19,23 @@ export class TodoService {
       isChecked: false
     });
   }
+
+  addDate(date: string){
+    this.toDoList.push({
+      date: date,
+      isChecked: false
+    });
+  }
+  checkOrUncheckedTitle($key: string, flag: boolean){
+    this.toDoList.update($key, { isChecked:flag });
+  }
+  formatDate(date: Date): string{
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${year}-${month}-${day}`;
+
+  }
  
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService} from './shared/todo.service';
 
+import * as firebase from 'firebase';
+
+
 
 @Component({
   selector: 'app-todo',
@@ -9,6 +12,9 @@ import { TodoService} from './shared/todo.service';
   providers: [TodoService]
 
 })
+
+
+
 export class TodoComponent implements OnInit {
   toDoListArray: any[];
 
@@ -25,12 +31,20 @@ export class TodoComponent implements OnInit {
       })
 
     });
+
+
+  }
+
+  updateDateAdded(dateAdded){
+    this.toDoService.formatDate(dateAdded);
   }
   onAdd(itemTitle){
     this.toDoService.addTitle(itemTitle.value);
     itemTitle.value = null;
   }
+  alterCheck($key: string, isChecked){
+    this.toDoService.checkOrUncheckedTitle($key, !isChecked);
+  }
+  
 
 }
-
-
