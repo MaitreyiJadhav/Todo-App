@@ -35,12 +35,9 @@ li{
     margin-top: 30px;
 
 }
-/* 
-ul.list-group {
-    text-align: center;
-
-} */
-
+input.form-control.title-input {
+    font-size: 2rem;
+}
 li.list-group-item {
     border: 1px solid black;
     margin: 4px;
