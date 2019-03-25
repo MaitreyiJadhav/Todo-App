@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService} from './shared/todo.service';
 
-import * as firebase from 'firebase';
+
 
 
 
@@ -17,6 +17,7 @@ import * as firebase from 'firebase';
 
 export class TodoComponent implements OnInit {
   toDoListArray: any[];
+  firebase: any;
 
   constructor(private toDoService: TodoService ) { }
 
@@ -32,15 +33,15 @@ export class TodoComponent implements OnInit {
 
     });
 
+    this.toDoListArray = this.toDoService.getToDoList() as any;
 
   }
 
-  updateDateAdded(dateAdded){
-    this.toDoService.formatDate(dateAdded);
-  }
   onAdd(itemTitle){
-    this.toDoService.addTitle(itemTitle.value);
+    this.toDoService.addTitle(itemTitle.value,itemTitle.createdAt);
     itemTitle.value = null;
+    itemTitle.createdAt= " ";
+  
   }
   alterCheck($key: string, isChecked){
     this.toDoService.checkOrUncheckedTitle($key, !isChecked);

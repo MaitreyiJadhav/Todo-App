@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database'
-
+import * as firebase from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,32 +10,30 @@ export class TodoService {
 
   getToDoList(){
     this.toDoList = this.firebasedb.list('titles');
+  
     return this.toDoList;
   }
 
-  addTitle(title: string){
+  addTitle(title: string,createdAt:string){
     this.toDoList.push({
       title: title,
-      isChecked: false
+      isChecked: false,
+      createdAt:firebase.firestore.FieldValue.serverTimestamp()
     });
   }
 
-  addDate(date: string){
-    this.toDoList.push({
-      date: date,
-      isChecked: false
-    });
-  }
+  
   checkOrUncheckedTitle($key: string, flag: boolean){
     this.toDoList.update($key, { isChecked:flag });
   }
-  formatDate(date: Date): string{
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+  addTestItem() {
+    const data = {
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    
+    }
 
-    return `${year}-${month}-${day}`;
-
+    this.firebasedb.list('titles').push(data);
   }
+
  
 }
