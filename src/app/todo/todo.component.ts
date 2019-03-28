@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+//import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 import { TodoService} from './shared/todo.service';
+import * as firebase from 'firebase';
+import {formatDate} from '@angular/common';
 
-
-
-
-
+ 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -12,7 +13,6 @@ import { TodoService} from './shared/todo.service';
   providers: [TodoService]
 
 })
-
 
 
 export class TodoComponent implements OnInit {
@@ -38,14 +38,18 @@ export class TodoComponent implements OnInit {
   }
 
   onAdd(itemTitle){
-    this.toDoService.addTitle(itemTitle.value,itemTitle.createdAt);
-    itemTitle.value = null;
-    itemTitle.createdAt= " ";
+    this.toDoService.addTitle(itemTitle.value,new Date().toDateString());    
+    itemTitle.value = "";
+    itemTitle.createdAt= new Date(); 
+    //itemTitle.createdAt = getLocaleDateFormat
+    console.log(itemTitle.createdAt);
   
   }
   alterCheck($key: string, isChecked){
     this.toDoService.checkOrUncheckedTitle($key, !isChecked);
   }
-  
+  onDelete($key: string){
+    this.toDoService.removeTitle($key);
+  }
 
 }

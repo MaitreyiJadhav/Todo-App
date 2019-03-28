@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+
 .container{
     font-family: 'Kaushan Script', cursive;
     background-image: url(../../assets/list.jpeg);
@@ -7,7 +10,7 @@
 }
 
 .jumbotron{
-    opacity: 0.7;
+    opacity: 0.9;
     padding: 45px 0;
 }
 
@@ -41,4 +44,13 @@ input.form-control.title-input {
 li.list-group-item {
     border: 1px solid black;
     margin: 4px;
+}
+span.createdDate {
+    color: darkslateblue;
+    font-size: 1.2rem;
+}
+
+input.form-control.title-input[_ngcontent-c1]{
+    font-family: 'Merriweather';
+
 }
