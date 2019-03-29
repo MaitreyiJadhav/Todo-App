@@ -30,7 +30,7 @@
 }
 
 li{
-    background-color: #fff9;
+    background-color:var(--white);
     font-size: 1.5rem;
 }
 
@@ -44,6 +44,9 @@ input.form-control.title-input {
 li.list-group-item {
     border: 1px solid black;
     margin: 4px;
+}
+li.list-group-item{
+    opacity: 0.9;
 }
 span.createdDate {
     color: darkslateblue;
